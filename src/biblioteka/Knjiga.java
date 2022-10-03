@@ -1,6 +1,7 @@
 package biblioteka;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Knjiga {
 
@@ -12,6 +13,29 @@ public class Knjiga {
 	
 	
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(isbn);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Knjiga other = (Knjiga) obj;
+		return Objects.equals(isbn, other.isbn);
+	}
+
+	@Override
+	public String toString() {
+		return "Knjiga [naslov=" + naslov + ", autori=" + autori + ", isbn=" + isbn + ", izdavac=" + izdavac
+				+ ", izadanje=" + izadanje + "]";
+	}
+
 	public String getNaslov() {
 		return naslov;
 	}
